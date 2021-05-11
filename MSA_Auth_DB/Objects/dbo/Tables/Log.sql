@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Log]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Date] DATE NOT NULL,
+	[ActorId] INT NOT NULL FOREIGN KEY REFERENCES [Account]([Id]),
+	[EventType] VARCHAR(32) NOT NULL,
+	[Message] VARCHAR(128),
+
+
+
+)
