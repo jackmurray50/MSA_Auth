@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MSA_Auth_API.Responses
+namespace MSA_Auth_API.Requests
 {
-    public class UserResponse
+    public class GetAccountRequest
     {
-        public string Name { get; set; }
         public string Email { get; set; }
     }
 }

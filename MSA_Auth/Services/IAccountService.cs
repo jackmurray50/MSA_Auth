@@ -6,10 +6,10 @@ using MSA_Auth_API.Requests;
 
 namespace MSA_Auth_API.Services
 {
-    public interface IUserService
+    public interface IAccountService
     {
-        Task<UserResponse> GetUserAsync(GetUserRequest request, CancellationToken cancellationToken = default);
-        Task<UserResponse> SignUpAsync(SignUpRequest request, CancellationToken cancellationToken = default);
+        Task<AccountResponse> GetUserAsync(GetAccountRequest request, CancellationToken cancellationToken = default);
+        Task<AccountResponse> SignUpAsync(SignUpRequest request, CancellationToken cancellationToken = default);
         Task<TokenResponse> SignInAsync(SignInRequest request, CancellationToken cancellationToken = default);
     }
 }
