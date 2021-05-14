@@ -8,8 +8,8 @@ namespace MSA_Auth_API.Services
 {
     public interface IAccountService
     {
-        Task<AccountResponse> GetUserAsync(GetAccountRequest request, CancellationToken cancellationToken = default);
-        Task<AccountResponse> SignUpAsync(SignUpRequest request, CancellationToken cancellationToken = default);
+        Task<AccountResponse> GetAccountAsync(GetAccountRequest request, CancellationToken cancellationToken = default);
+        Task<AccountResponse> AddAccountAsync(AddAccountRequest request, CancellationToken cancellationToken = default);
         Task<TokenResponse> SignInAsync(SignInRequest request, CancellationToken cancellationToken = default);
     }
 }

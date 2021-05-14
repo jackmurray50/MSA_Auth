@@ -7,7 +7,7 @@ namespace MSA_Auth_API.Repositories
     public interface IAccountRepository : IRepository
     {
         Task<bool> AuthenticateAsync(string email, string password, CancellationToken cancellationToken = default);
-        Task<bool> SignUpAsync(Account account, string password, CancellationToken cancellationToken = default);
+        Task<bool> AddAccountAsync(Account account, string hash, string salt, CancellationToken cancellationToken = default);
         Task<Account> GetByEmailAsync(string requestEmail, CancellationToken cancellationToken = default);
     }
 }

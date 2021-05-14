@@ -8,6 +8,6 @@ namespace MSA_Auth_API.Requests
     public class SignInRequest
     {
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string Hash { get; set; }
     }
 }

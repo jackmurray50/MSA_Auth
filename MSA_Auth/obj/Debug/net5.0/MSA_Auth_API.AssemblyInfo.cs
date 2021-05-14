@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("MSA_Auth_DB, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\jackm\\source\\repos\\MSA_Auth\\MSA_Auth_DB", "MSA_Auth_DB.sqlproj", "0")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("3e4ddab1-b60f-4b50-bdea-b9ae50d3a6a6")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSA_Auth_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
