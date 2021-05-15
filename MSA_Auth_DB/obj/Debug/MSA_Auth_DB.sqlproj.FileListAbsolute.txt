@@ -2,9 +2,5 @@ C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\bin\Debug\MSA_Auth_DB.dacpac
 C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\bin\Debug\MSA_Auth_DB.dll
 C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\bin\Debug\MSA_Auth_DB.pdb
 C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\MSA_Auth_DB.sqlprojAssemblyReference.cache
-C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\Model.xml
-C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\refactor.xml
-C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\postdeploy.sql
-C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\predeploy.sql
 C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\MSA_Auth_DB.dll
 C:\Users\jackm\source\repos\MSA_Auth\MSA_Auth_DB\obj\Debug\MSA_Auth_DB.pdb
