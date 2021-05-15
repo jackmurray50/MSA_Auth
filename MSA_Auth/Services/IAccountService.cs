@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using MSA_Auth_API.Models;
+using MSA_Auth_API.Entities;
 using MSA_Auth_API.Responses;
 using MSA_Auth_API.Requests;
 

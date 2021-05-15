@@ -38,7 +38,7 @@ namespace MSA_Auth_API.Tests.Fixtures
                     }
 
                     services.AddScoped<AccountContext>(serviceProvider => new TestAccountContext(options));
-                    services.Replace(ServiceDescriptor.Scoped(_ => new AccountContextFactory().InMemoryUserManager));
+                    services.Replace(ServiceDescriptor.Scoped(_ => new AccountContextFactory().InMemoryAccountManager));
                     services.AddSingleton<IDistributedCache, MemoryDistributedCache>();
 
                     var sp = services.BuildServiceProvider();

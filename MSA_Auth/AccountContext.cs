@@ -10,7 +10,7 @@ namespace MSA_Auth_API
 {
     public class AccountContext : IdentityDbContext<Account>, IUnitOfWork
     {
-        public const string DEFAULT_SCHEMA = "catalog";
+        public const string DEFAULT_SCHEMA = "account";
 
         public AccountContext(DbContextOptions<AccountContext> options) : base(options)
         {
@@ -27,7 +27,7 @@ namespace MSA_Auth_API
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ItemEntitySchemaDefinition());
+            modelBuilder.ApplyConfiguration(new AccountEntitySchemaConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

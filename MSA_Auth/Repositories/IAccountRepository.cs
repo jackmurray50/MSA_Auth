@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using MSA_Auth_API.Models;
+using MSA_Auth_API.Entities;
 
 namespace MSA_Auth_API.Repositories
 {

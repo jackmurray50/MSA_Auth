@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace MSA_Auth_API.Entities
 {
-    public class Account
+    public class Account : IdentityUser
     {
-        public Guid Id { get; set; }
-        public string Salt { get; set; }
-        public string Hash { get; set; }
-        public string Email { get; set; }
         public string AccountType { get; set; }
 
     }

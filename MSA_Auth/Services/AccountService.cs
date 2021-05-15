@@ -8,7 +8,7 @@ using MSA_Auth_API.Configurations;
 using MSA_Auth_API.Repositories;
 using MSA_Auth_API.Responses;
 using MSA_Auth_API.Requests;
-using MSA_Auth_API.Models;
+using MSA_Auth_API.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -33,7 +33,7 @@ namespace MSA_Auth_API.Services
 
         public async Task<AccountResponse> AddAccountAsync(AddAccountRequest request, CancellationToken cancellationToken)
         {
-            var account = new Models.Account { Email = request.Email};
+            var account = new Entities.Account { Email = request.Email};
             bool isCreated = await _accountRepository.AddAccountAsync(account, request.Hash, request.Salt, cancellationToken);
 
             return !isCreated ? null : new AccountResponse {Email = request.Email };
@@ -41,7 +41,7 @@ namespace MSA_Auth_API.Services
 
         public async Task<TokenResponse> SignInAsync(SignInRequest request, CancellationToken cancellationToken)
         {
-            bool isAuthenticated = await _accountRepository.AuthenticateAsync(request.Email, request.Password, cancellationToken);
+            bool isAuthenticated = await _accountRepository.AuthenticateAsync(request.Email, request.Hash, cancellationToken);
 
             return !isAuthenticated ? null : new TokenResponse { Token = GenerateSecurityToken(request) };
         }

@@ -1,36 +1,56 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using MSA_Auth_API.Services;
-using MediatR;
 using MSA_Auth_API.Requests;
+using MSA_Auth_API.Filters;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MSA_Auth_API.Controllers
 {
+    [Authorize]
     [Route("api/account")]
     [ApiController]
     [JsonException]
-    public class AccountController : Controller
+    public class UserController : ControllerBase
     {
         private readonly IAccountService _accountService;
 
-        public AccountController(IAccountService accountService)
+        public UserController(IAccountService accountService)
         {
             _accountService = accountService;
         }
 
-        [HttpGet("{email:string}")]
-        public async Task<IActionResult> GetById(string email)
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            var result = await _accountService.GetAccountAsync(new GetAccountRequest { Email = email });
-            return Ok(result);
+            var claim = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+
+            if (claim == null) return Unauthorized();
+
+            var token = await _accountService.GetAccountAsync(new GetAccountRequest { Email = claim.Value });
+            return Ok(token);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post(AddAccountRequest request)
+        [AllowAnonymous]
+        [HttpPost("auth")]
+        public async Task<IActionResult> SignIn(SignInRequest request)
         {
-            var result = await _accountService.AddAccountAsync(request);
-            return CreatedAtAction(nameof(GetById), new { id = result.Email }, null);
+            var token = await _accountService.SignInAsync(request);
+
+            if (token == null) return BadRequest();
+            return Ok(token);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> AddAccount(AddAccountRequest request)
+        {
+            var user = await _accountService.AddAccountAsync(request);
+
+            if (user == null) return BadRequest();
+            return CreatedAtAction(nameof(Get), new { }, null);
         }
     }
 }
